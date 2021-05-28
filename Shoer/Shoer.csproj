@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\css\" />
+    <Folder Include="wwwroot\js\" />
+    <Folder Include="wwwroot\img\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Shoer.Business\Shoer.Business.csproj" />
+    <ProjectReference Include="..\Shoer.Data\Shoer.Data.csproj" />
+    <ProjectReference Include="..\Shoer.Entity\Shoer.Entity.csproj" />
+  </ItemGroup>
+
+</Project>

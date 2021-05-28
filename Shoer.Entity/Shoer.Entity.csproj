@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Category\" />
+    <Folder Include="Customer\" />
+    <Folder Include="CustomerContact\" />
+    <Folder Include="CustomerAdress\" />
+    <Folder Include="Admin\" />
+    <Folder Include="OrderDetails\" />
+    <Folder Include="Order\" />
+    <Folder Include="Shoe\" />
+  </ItemGroup>
+
+</Project>
