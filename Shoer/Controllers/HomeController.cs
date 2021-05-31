@@ -5,7 +5,7 @@ namespace Shoer.Controllers
 {
     public class HomeController : Controller
     {
-        private IBrandService _brandService;
+        private readonly IBrandService _brandService;
 
         public HomeController(IBrandService brandService)
         {
