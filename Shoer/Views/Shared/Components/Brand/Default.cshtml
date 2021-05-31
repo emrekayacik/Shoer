@@ -1,0 +1,14 @@
+﻿@model List<Shoer.Entity.Brand.Brand>
+
+<li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Brands
+    </a>
+    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+        @foreach (var item in Model)
+        {
+            <a class="dropdown-item" href="/Shoe/List/@item.Id">@item.BrandName</a>
+        }
+    </div>
+</li>
+
