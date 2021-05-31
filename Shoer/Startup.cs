@@ -25,6 +25,9 @@ namespace Shoer
             services.AddControllersWithViews();
             services.AddScoped<IBrandRepository, SQLBrandRepository>();
             services.AddScoped<IBrandService, BrandManager>();
+
+            services.AddScoped<ICategoryRepository, SQLCategoryRepository>();
+            services.AddScoped<ICategoryService, CategoryManager>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

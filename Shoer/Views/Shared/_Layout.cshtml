@@ -24,6 +24,7 @@
                     <a class="nav-link" href="/Shoe/List">Shoe List </a>
                 </li>
                 @await Component.InvokeAsync("Brand")
+                @await Component.InvokeAsync("Category")
             </ul>
             @await Component.InvokeAsync("Cart")
             @await Component.InvokeAsync("Login")
@@ -40,7 +41,7 @@
         </main>
 
 
-<footer class="bg-light text-center text-lg-start">
+<footer class="bg-light text-center text-lg-start" style="margin-top: 200px;">
         <!-- Copyright -->
         <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
             © 2021 Copyright:

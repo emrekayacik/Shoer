@@ -3,29 +3,27 @@ using Shoer.Entity.Brand;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Linq;
 
 namespace Shoer.Data.Concrete.MsSQL
 {
     public class SQLBrandRepository : IBrandRepository
     {
-        private readonly DatabaseConnection _databaseConnection;
         private List<Brand> Brands;
 
         public SQLBrandRepository()
         {
-            _databaseConnection = new DatabaseConnection();
             Brands = new List<Brand>();
         }
         public Brand GetById(int id)
         {
-            _databaseConnection.Connect();
-            throw new NotImplementedException();
+            return (GetAll().FirstOrDefault(x => x.Id == id));
         }
 
         public List<Brand> GetAll()
         {
-            _databaseConnection.Connect();
-            SqlCommand command = new SqlCommand("SELECT * FROM Brand", _databaseConnection._connection);
+            DatabaseConnection.Connect();
+            SqlCommand command = new SqlCommand("SELECT * FROM Brand", DatabaseConnection._connection);
             SqlDataReader reader = command.ExecuteReader();
             while (reader.Read())
             {
@@ -37,31 +35,41 @@ namespace Shoer.Data.Concrete.MsSQL
                 Brands.Add(brand);
             }
             reader.Close();
-            _databaseConnection._connection.Close();
+            DatabaseConnection._connection.Close();
             return Brands;
         }
 
         public void Create(Brand entity)
         {
-            _databaseConnection.Connect();
-            throw new NotImplementedException();
+            DatabaseConnection.Connect();
+            SqlCommand command = new SqlCommand("INSERT INTO Brand (BrandName) VALUES (@BrandName)", DatabaseConnection._connection);
+            command.Parameters.AddWithValue("@BrandName", entity.BrandName);
+            command.ExecuteNonQuery();
+            DatabaseConnection._connection.Close();
         }
 
         public void Update(Brand entity)
         {
-            _databaseConnection.Connect();
-            throw new NotImplementedException();
+            DatabaseConnection.Connect();
+            SqlCommand command = new SqlCommand("UPDATE Brand SET BrandName= @BrandName WHERE Id=@Id", DatabaseConnection._connection);
+            command.Parameters.AddWithValue("@BrandName", entity.BrandName);
+            command.Parameters.AddWithValue("@Id", entity.Id);
+            command.ExecuteNonQuery();
+            DatabaseConnection._connection.Close();
         }
 
         public void Delete(Brand entity)
         {
-            _databaseConnection.Connect();
-            throw new NotImplementedException();
+            DatabaseConnection.Connect();
+            SqlCommand command = new SqlCommand("DELETE FROM Brand WHERE Id=@Id", DatabaseConnection._connection);
+            command.Parameters.AddWithValue("@Id", entity.Id);
+            command.ExecuteNonQuery();
+            DatabaseConnection._connection.Close();
         }
 
         public Brand GetMostPopularBrand()
         {
-            _databaseConnection.Connect();
+            DatabaseConnection.Connect();
             throw new NotImplementedException();
         }
     }

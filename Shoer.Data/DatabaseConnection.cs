@@ -3,14 +3,10 @@ using System.Data.SqlClient;
 
 namespace Shoer.Data
 {
-    public class DatabaseConnection
+    public static class DatabaseConnection
     {
-        public SqlConnection _connection;
-        public DatabaseConnection()
-        {
-            _connection = new SqlConnection(@"server=(localdb)\MSSQLLocalDB;initial catalog=ShoeECommerce;integrated security=true");
-        }
-        public void Connect()
+        public static SqlConnection _connection = new SqlConnection(@"server=(localdb)\MSSQLLocalDB;initial catalog=ShoeECommerce;integrated security=true");
+        public static void Connect()
         {
             if (_connection.State == ConnectionState.Closed)
             {
