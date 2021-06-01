@@ -26,6 +26,9 @@ namespace Shoer
             services.AddScoped<IBrandRepository, SQLBrandRepository>();
             services.AddScoped<IBrandService, BrandManager>();
 
+            services.AddScoped<IShoeRepository, SQLShoeRepository>();
+            services.AddScoped<IShoeService, ShoeManager>();
+
             services.AddScoped<ICategoryRepository, SQLCategoryRepository>();
             services.AddScoped<ICategoryService, CategoryManager>();
         }

@@ -1,0 +1,30 @@
+﻿@model List<Shoer.Entity.Shoe.Shoe>
+
+
+<div class="container pt-5">
+    <div class="row">
+
+        @foreach (var item in Model)
+        {
+            <div class="col-md-4">
+                <div class="card mt-5" style="width: 18rem;">
+                    <img class="card-img-top" src="/img/ShoeImages/@item.ImageText" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">@item.Title</h5>
+                        <p class="card-text">
+                            @if (item.ShoeDescription.Length > 43)
+                            {
+                                @item.ShoeDescription.Substring(0,40)<span>...</span>
+                            }
+                            else
+                            {
+                                @item.ShoeDescription
+                            }
+                        </p>
+                        <a href="#" class="btn btn-primary form-control">Git</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

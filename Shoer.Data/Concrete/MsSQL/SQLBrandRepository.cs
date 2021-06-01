@@ -42,7 +42,7 @@ namespace Shoer.Data.Concrete.MsSQL
         public void Create(Brand entity)
         {
             DatabaseConnection.Connect();
-            SqlCommand command = new SqlCommand("INSERT INTO Brand (BrandName) VALUES (@BrandName)", DatabaseConnection._connection);
+            SqlCommand command = new SqlCommand("INSERT INTO Brand (BrandName) VALUES (NIKE)", DatabaseConnection._connection);
             command.Parameters.AddWithValue("@BrandName", entity.BrandName);
             command.ExecuteNonQuery();
             DatabaseConnection._connection.Close();

@@ -16,7 +16,7 @@ namespace Shoer.Business.Concrete
         }
         public Brand GetById(int id)
         {
-            throw new System.NotImplementedException();
+            return _brandRepository.GetById(id);
         }
 
         public List<Brand> GetAll()
@@ -26,22 +26,22 @@ namespace Shoer.Business.Concrete
 
         public void Create(Brand entity)
         {
-            throw new System.NotImplementedException();
+            _brandRepository.Create(entity);
         }
 
         public void Update(Brand entity)
         {
-            throw new System.NotImplementedException();
+            _brandRepository.Update(entity);
         }
 
         public void Delete(Brand entity)
         {
-            throw new System.NotImplementedException();
+            _brandRepository.Delete(entity);
         }
 
         public Brand GetMostPopularBrand()
         {
-            throw new System.NotImplementedException();
+            return _brandRepository.GetMostPopularBrand();
         }
     }
 }
