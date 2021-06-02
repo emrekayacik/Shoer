@@ -22,6 +22,7 @@ namespace Shoer.Data.Concrete.MsSQL
 
         public List<Category> GetAll()
         {
+            Categories.Clear();
             DatabaseConnection.Connect();
             SqlCommand command = new SqlCommand("SELECT * FROM Category", DatabaseConnection._connection);
             SqlDataReader reader = command.ExecuteReader();

@@ -20,5 +20,9 @@ namespace Shoer.Controllers
         {
             return View(id == null ? _shoeService.GetAll() : _shoeService.GetAll().Where(x => x.BrandId == id).ToList());
         }
+        public IActionResult Category(int? id)
+        {
+            return View(id == null ? _shoeService.GetAll() : _shoeService.GetAll().Where(x => x.CategoryId == id).ToList());
+        }
     }
 }

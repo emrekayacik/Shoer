@@ -45,12 +45,11 @@ namespace Shoer.Data.Concrete.MsSQL
         public void Create(Customer entity)
         {
             DatabaseConnection.Connect();
-            SqlCommand command = new SqlCommand("INSERT INTO Customer (UserName,CustomerPassword,Firstname,LastName,IsDeleted) VALUES (@UserName,@CustomerPassword,@Firstname,@LastName,@IsDeleted)", DatabaseConnection._connection);
+            SqlCommand command = new SqlCommand("INSERT INTO Customer (UserName,CustomerPassword,Firstname,LastName,IsDeleted) VALUES (@UserName,@CustomerPassword,@Firstname,@LastName,'0')", DatabaseConnection._connection);
             command.Parameters.AddWithValue("@UserName", entity.UserName);
             command.Parameters.AddWithValue("@CustomerPassword", entity.CustomerPassword);
             command.Parameters.AddWithValue("@Firstname", entity.Firstname);
             command.Parameters.AddWithValue("@LastName", entity.LastName);
-            command.Parameters.AddWithValue("@IsDeleted", entity.IsDeleted);
             command.ExecuteNonQuery();
             DatabaseConnection._connection.Close();
         }

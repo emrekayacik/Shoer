@@ -31,6 +31,12 @@ namespace Shoer
 
             services.AddScoped<ICategoryRepository, SQLCategoryRepository>();
             services.AddScoped<ICategoryService, CategoryManager>();
+
+            services.AddScoped<ICustomerRepository, SQLCustomerRepository>();
+            services.AddScoped<ICustomerService, CustomerManager>();
+
+            services.AddMvc();
+            services.AddSession();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -46,9 +52,12 @@ namespace Shoer
                 app.UseHsts();
             }
             app.UseHttpsRedirection();
+            app.UseSession();
             app.UseStaticFiles();
 
             app.UseRouting();
+
+
 
             app.UseAuthorization();
 

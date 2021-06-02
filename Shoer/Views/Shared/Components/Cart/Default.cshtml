@@ -1,11 +1,11 @@
-﻿@*@model Emre.MvcWebUI.Models.Cart*@
+﻿@model int
 
 <ul class="navbar-nav my-2 my-lg-0">
 
     <li id="myCart" class="nav-item">
         <a class="nav-link" href="/Cart">
             <i class="fa fa-cart-plus"></i>
-            (3@*@Model.CartLines.Count*@)
+            (@Model)
         </a>
     </li>
 
