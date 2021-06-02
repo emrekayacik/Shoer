@@ -1,18 +1,26 @@
-﻿<ul class="navbar-nav my-2 my-lg-0">
+﻿@using Microsoft.AspNetCore.Http
+<ul class="navbar-nav my-2 my-lg-0">
     
  
-    <li class="nav-item active">
-        <a class="nav-link" href="/Account">emre aydemir</a>
-    </li>
-    <li class="nav-item active">
-        <a class="nav-link" href="/Account/Logout">Logout</a>
-    </li>   
+    @if (Context.Session.GetString("UserName") != null)
+    {
+        <li class="nav-item active">
+            <a class="nav-link" href="/Customer">@Context.Session.GetString("UserName")</a>
+        </li>
+        <li class="nav-item active">
+            <a class="nav-link" href="/Customer/Logout">Logout</a>
+        </li>  
+    }
+    else
+    {
+        <li class="nav-item active">
+            <a class="nav-link" href="/Customer/Login">Login<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item active">
+            <a class="nav-link" href="/Customer/Register">Register<span class="sr-only">(current)</span></a>
+        </li>
+    }
 
-    <li class="nav-item active">
-        <a class="nav-link" href="/Account/Login">Login<span class="sr-only">(current)</span></a>
-    </li>
-    <li class="nav-item active">
-        <a class="nav-link" href="/Account/Register">Register<span class="sr-only">(current)</span></a>
-    </li>
+    
 
 </ul>

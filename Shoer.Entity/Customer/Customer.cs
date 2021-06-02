@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Shoer.Entity.Customer
+﻿namespace Shoer.Entity.Customer
 {
-   public class Customer
+    public class Customer
     {
         public int Id { get; set; }
         public string UserName { get; set; }
