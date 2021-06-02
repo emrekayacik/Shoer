@@ -1,0 +1,63 @@
+﻿@model List<Shoer.Entity.Shoe.Shoe>
+
+@{
+    double total = 0;
+    int count = 0;
+}
+<div class="container" style="margin-top: 200px;">
+    <table class="table table-bordered table-hover table-striped">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        @if (Model.Count <= 0)
+        {
+            <tr>
+                <td colspan="4">There is no Shoe in your cart. Go to 'Shoe List' to add one.</td>
+            </tr>
+        }
+        else
+        {
+            @foreach (var item in Model)
+            {
+
+                    total += item.Price;
+                
+                <tr>
+                    <td>
+                        @item.Title
+                    </td>
+                    <td>
+                        @item.ShoeDescription
+                    </td>
+                    <td>
+                        @item.Price
+                    </td>
+                    <td>
+                        @using (Html.BeginForm("RemoveFromCart", "Cart"))
+                        {
+                            @Html.Hidden("Id", count)
+                            <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Delete</button>
+                        }
+                    </td>
+                </tr>
+                count += 1;
+            }
+            
+        }
+        </tbody>
+        <tfoot>
+        <tr>
+            <td colspan="4"></td>
+            <td>
+                @total.ToString()
+            </td>
+        </tr>
+        </tfoot>
+    </table>
+</div>
