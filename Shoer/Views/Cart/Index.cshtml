@@ -63,22 +63,12 @@
             </tfoot>
         </table>
     </div>
-    @if (Context.Session.GetString("UserName") != null && Model.Count>=0)
+    @if (Context.Session.GetString("UserName") != null && Model.Count>0)
     {
         <div class="row justify-content-center">
             <div class="d-flex flex-column bd-highlight mb-3">
                 <div class="p-2 bd-highlight">
                     <a href="/Order/AddOrder" class="btn btn-primary text-light">Order Now</a>
-                </div>
-            </div>
-        </div>
-    }
-    else
-    {
-        <div class="row justify-content-center">
-            <div class="d-flex flex-column bd-highlight mb-3">
-                <div class="p-2 bd-highlight">
-                    <a href="/Customer/Login">To give order, please sign in or add a Shoe to your cart.</a>
                 </div>
             </div>
         </div>
