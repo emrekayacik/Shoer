@@ -24,5 +24,9 @@ namespace Shoer.Controllers
         {
             return View(id == null ? _shoeService.GetAll() : _shoeService.GetAll().Where(x => x.CategoryId == id).ToList());
         }
+        public IActionResult Details(int id)
+        {
+            return View(_shoeService.GetById(id));
+        }
     }
 }

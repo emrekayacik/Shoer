@@ -5,10 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\js\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <None Include="wwwroot\img\ShoeImages\1.jpg" />
   </ItemGroup>
 

@@ -1,15 +1,15 @@
-﻿using Shoer.Data.Abstract;
+﻿using Shoer.Business.Abstract;
+using Shoer.Data.Abstract.EntityRepos;
 using Shoer.Entity.Order;
 using System.Collections.Generic;
 
 namespace Shoer.Business.Concrete
 {
-    public class OrderManager
+    public class OrderManager : IOrderService
     {
-        private IRepository<Order> _OrderRepository;
+        private IOrderRepository _OrderRepository;
 
-
-        public OrderManager(IRepository<Order> OrderRepository)
+        public OrderManager(IOrderRepository OrderRepository)
         {
             _OrderRepository = OrderRepository;
         }

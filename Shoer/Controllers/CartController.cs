@@ -36,7 +36,8 @@ namespace Shoer.Controllers
             HttpContext.Session.SetString(key, str);
             return RedirectToAction("Index", "Cart");
         }
-        public IActionResult AddToCart(int Id)
+        [HttpPost]
+        public JsonResult AddToCart(int Id)
         {
             var shoe = _shoeService.GetAll().FirstOrDefault(x => x.Id == Id);
             if (shoe != null)
@@ -50,7 +51,8 @@ namespace Shoer.Controllers
                 var str = JsonConvert.SerializeObject(obj);
                 HttpContext.Session.SetString(key, str);
             }
-            return RedirectToAction("Index", "Cart");
+
+            return Json(true);
         }
         public Cart GetCart()
         {

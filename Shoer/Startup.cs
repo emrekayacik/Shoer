@@ -5,8 +5,10 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Shoer.Business.Abstract;
 using Shoer.Business.Concrete;
+using Shoer.Data.Abstract;
 using Shoer.Data.Abstract.EntityRepos;
 using Shoer.Data.Concrete.MsSQL;
+using Shoer.Entity.OrderDetails;
 
 namespace Shoer
 {
@@ -34,6 +36,12 @@ namespace Shoer
 
             services.AddScoped<ICustomerRepository, SQLCustomerRepository>();
             services.AddScoped<ICustomerService, CustomerManager>();
+
+            services.AddScoped<IOrderRepository, SQLOrderRepository>();
+            services.AddScoped<IOrderService, OrderManager>();
+
+            services.AddScoped<IRepository<OrderDetails>, SQLOrderDetailsRepository>();
+            services.AddScoped<IOrderDetailsService, OrderDetailsManager>();
 
             services.AddMvc();
             services.AddSession();

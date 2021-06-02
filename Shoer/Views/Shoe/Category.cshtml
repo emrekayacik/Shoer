@@ -1,13 +1,13 @@
 ﻿@model List<Shoer.Entity.Shoe.Shoe>
 
-@await Component.InvokeAsync("CategorySection")
 
+@*@await Component.InvokeAsync("CategorySection")*@
 <div class="container pt-5">
     <div class="row">
 
         @foreach (var item in Model)
         {
-            <div class="col-md-4">
+            <div class="col-lg-4 col-md-6 col-sm-12">
                 <div class="card mt-5" style="width: 18rem;">
                     <img width="360px;" class="card-img-top" src="/img/ShoeImages/@item.ImageText" alt="Card image cap">
                     <div class="card-body">
@@ -23,8 +23,15 @@
                             }
                         </p>
                         <div class="d-flex bd-highlight justify-content-center">
-                            <a href="/Shoe/Details/@item.Id" class="btn btn-primary p-2 flex-fill bd-highlight mr-1">Git <i class="fas fa-chevron-right"></i></a>
-                            <a href="/Cart/Add/@item.Id" class="btn btn-primary p-2 flex-fill bd-highlight ml-1">Sepete Ekle <i class="fas fa-cart-plus"></i></a>
+                            <a href="/Shoe/Details/@item.Id" class="btn btn-primary p-2 flex-fill bd-highlight mr-1">Go <i class="fas fa-chevron-right"></i></a>
+                            @using (Html.BeginForm("AddToCart", "Cart"))
+                            {
+                                <input type="hidden" name="Id" id="Id" value="@item.Id" />
+                                <button onclick="doPost(@item.Id)" type="button" id="btnAddToCart" class="btn btn-success p-2 flex-fill bd-highlight ml-1">
+                                    <i class="fas fa-cart-plus"></i>
+                                    Add To Cart $@item.Price
+                                </button>
+                            }
                         </div>
                     </div>
                 </div>
@@ -32,3 +39,4 @@
         }
     </div>
 </div>
+<script src="~/js/AddToCart.js"></script>

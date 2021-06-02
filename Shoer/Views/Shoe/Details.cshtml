@@ -1,0 +1,73 @@
+﻿@model Shoer.Entity.Shoe.Shoe
+@{
+    ViewBag.Title = "Details";
+}
+<div id="product-details" class="container pb-5" style="margin-top: 100px;">
+    <div class="row">
+        <div class="col-md-6">
+            <img src="/img/ShoeImages/@Model.ImageText" class="img-fluid rounded w-100">
+        </div>
+        <div class="col-md-6">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>@Model.Title</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    @if (!Model.IsDeleted)
+                    {
+                        <span class="badge badge-primary">Stokta</span>
+                    }
+                    else
+                    {
+                        <span class="badge badge-danger">Stokta yok</span>
+                    }
+
+                    <span class="product-number">#498494865</span>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-12">
+                    <div id="description">
+                        @Model.ShoeDescription
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-1">
+                <div class="col-md-4">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                    <span class="badge badge-success">53</span>
+                </div>
+                <div class="col-md-4">
+                    <div id="write-review">
+                        <a href="">Write a review</a>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-12">
+                    <h4 id="product-price">$@Model.Price</h4>
+                </div>
+            </div>
+            <div class="row mt-1">
+                <div class="col-md-12">
+                    @using (Html.BeginForm("AddToCart", "Cart"))
+                    {
+                        <input type="hidden" name="Id" id="Id" value="@Model.Id"/>
+                        <button onclick="doPost(@Model.Id)" type="button" id="btnAddToCart" class="btn btn-success p-2 flex-fill bd-highlight ml-1">
+                            <i class="fas fa-cart-plus"></i>
+                            Add To Cart
+                        </button>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<script src="~/js/AddToCart.js"></script>

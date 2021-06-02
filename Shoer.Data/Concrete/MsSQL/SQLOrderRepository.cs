@@ -1,4 +1,4 @@
-﻿using Shoer.Data.Abstract;
+﻿using Shoer.Data.Abstract.EntityRepos;
 using Shoer.Entity.Order;
 using System;
 using System.Collections.Generic;
@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace Shoer.Data.Concrete.MsSQL
 {
-    public class SQLOrderRepository : IRepository<Order>
+    public class SQLOrderRepository : IOrderRepository
     {
         private List<Order> Orders;
 
