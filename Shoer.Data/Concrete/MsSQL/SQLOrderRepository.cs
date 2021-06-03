@@ -59,7 +59,7 @@ namespace Shoer.Data.Concrete.MsSQL
         public void Update(Order entity)
         {
             DatabaseConnection.Connect();
-            SqlCommand command = new SqlCommand("UPDATE Orders SET OrderStatus= @title , OrderDate=@descr , TotalPayment=@gender , IsDeleted=@price , CustomerId=@size WHERE Id=@Id", DatabaseConnection._connection);
+            SqlCommand command = new SqlCommand("UPDATE Orders SET OrderStatus= @OrderStatus , OrderDate=@OrderDate , TotalPayment=@TotalPayment , IsDeleted=@IsDeleted , CustomerId=@CustomerId WHERE Id=@Id", DatabaseConnection._connection);
             command.Parameters.AddWithValue("@OrderStatus", entity.OrderStatus);
             command.Parameters.AddWithValue("@OrderDate", entity.OrderDate);
             command.Parameters.AddWithValue("@TotalPayment", entity.TotalPayment);

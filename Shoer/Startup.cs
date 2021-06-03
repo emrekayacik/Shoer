@@ -8,6 +8,7 @@ using Shoer.Business.Concrete;
 using Shoer.Data.Abstract;
 using Shoer.Data.Abstract.EntityRepos;
 using Shoer.Data.Concrete.MsSQL;
+using Shoer.Entity.Admin;
 using Shoer.Entity.OrderDetails;
 
 namespace Shoer
@@ -42,6 +43,15 @@ namespace Shoer
 
             services.AddScoped<IRepository<OrderDetails>, SQLOrderDetailsRepository>();
             services.AddScoped<IOrderDetailsService, OrderDetailsManager>();
+
+            services.AddScoped<IRepository<Admin>, SQLAdminRepository>();
+            services.AddScoped<IAdminService, AdminManager>();
+
+            services.AddScoped<ICustomerContactRepository, SQLCustomerContactRepository>();
+            services.AddScoped<ICustomerContactService, CustomerContactManager>();
+
+            services.AddScoped<ICustomerAdressRepository, SQLCustomerAdressRepository>();
+            services.AddScoped<ICustomerAdressService, CustomerAdressManager>();
 
             services.AddMvc();
             services.AddSession();

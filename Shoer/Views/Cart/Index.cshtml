@@ -13,6 +13,7 @@
                     <th>Title</th>
                     <th>Description</th>
                     <th>Price</th>
+                    <th>Image</th>
                     <th></th>
                 </tr>
             </thead>
@@ -40,6 +41,7 @@
                             <td>
                                 @item.Price
                             </td>
+                            <td><img style="width: 50px; height: auto;" src="/img/ShoeImages/@item.ImageText"/></td>
                             <td>
                                 @using (Html.BeginForm("RemoveFromCart", "Cart"))
                                 {

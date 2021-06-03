@@ -11,6 +11,7 @@ namespace Shoer.Entity.Shoe
         public string Gender { get; set; }
         public double Price { get; set; }
         public int Size { get; set; }
+        public int Stock { get; set; }
         public DateTime CreatedDate { get; set; }
         public bool IsDeleted { get; set; }
         public int BrandId { get; set; }

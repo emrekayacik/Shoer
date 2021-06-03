@@ -4,8 +4,6 @@ using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Shoer.Data.Concrete.MsSQL
 {
@@ -21,8 +19,7 @@ namespace Shoer.Data.Concrete.MsSQL
         public void Create(CustomerAdress entity)
         {
             DatabaseConnection.Connect();
-            SqlCommand command = new SqlCommand("INSERT INTO CustomerAdress(City,Street,PostalCode,ApartmentNo,FlatNo,CustomerId) " +
-                                                 "VALUES (@City,@Street,@PostalCode,@ApartmentNo,@FlatNo,@CustomerId) ",DatabaseConnection._connection);
+            SqlCommand command = new SqlCommand("INSERT INTO CustomerAdress(City,Street,PostalCode,ApartmentNo,FlatNo,CustomerId) VALUES (@City,@Street,@PostalCode,@ApartmentNo,@FlatNo,@CustomerId) ", DatabaseConnection._connection);
             command.Parameters.AddWithValue("@City", entity.City);
             command.Parameters.AddWithValue("@Street", entity.Street);
             command.Parameters.AddWithValue("@PostalCode", entity.PostalCode);
@@ -46,7 +43,7 @@ namespace Shoer.Data.Concrete.MsSQL
         public List<CustomerAdress> GetAll()
         {
             DatabaseConnection.Connect();
-            SqlCommand command = new SqlCommand ( "SELECT * FROM CustomerAdress", DatabaseConnection._connection );
+            SqlCommand command = new SqlCommand("SELECT * FROM CustomerAdress", DatabaseConnection._connection);
             SqlDataReader reader = command.ExecuteReader();
             while (reader.Read())
             {
@@ -75,7 +72,7 @@ namespace Shoer.Data.Concrete.MsSQL
         public void Update(CustomerAdress entity)
         {
             DatabaseConnection.Connect();
-            SqlCommand command = new SqlCommand("UPDATE CustomerAdress SET City = @City, Street = @Street, PostalCode=@PostalCode, ApartmentNo = @ApartmentNo, FlatNo = @FlatNo, CustomerId = @CustomerId ",DatabaseConnection._connection);
+            SqlCommand command = new SqlCommand("UPDATE CustomerAdress SET City = @City, Street = @Street, PostalCode=@PostalCode, ApartmentNo = @ApartmentNo, FlatNo = @FlatNo, CustomerId = @CustomerId ", DatabaseConnection._connection);
             command.Parameters.AddWithValue("@City", entity.City);
             command.Parameters.AddWithValue("@Street", entity.Street);
             command.Parameters.AddWithValue("@PostalCode", entity.PostalCode);

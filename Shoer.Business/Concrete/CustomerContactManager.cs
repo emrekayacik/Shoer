@@ -3,15 +3,16 @@ using Shoer.Data.Abstract.EntityRepos;
 using Shoer.Entity.CustomerContact;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Shoer.Business.Concrete
 {
     public class CustomerContactManager : ICustomerContactService
     {
         private ICustomerContactRepository _CustomerContactRepository;
+        public CustomerContactManager(ICustomerContactRepository CustomerContactRepository)
+        {
+            _CustomerContactRepository = CustomerContactRepository;
+        }
         public void Create(CustomerContact entity)
         {
             _CustomerContactRepository.Create(entity);

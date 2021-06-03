@@ -1,0 +1,52 @@
+﻿@model List<Shoer.Entity.Customer.Customer>
+
+@{
+    Layout = "_AdminLayout";
+}
+
+<div class="container pb-5" style="margin-top: 150px;">
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table table-bordered table-hover table-striped">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Username</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model.Count <= 0)
+                    {
+                        <tr>
+                            <td colspan="4">There is no Customer registered.</td>
+                        </tr>
+                    }
+                    else
+                    {
+                        @foreach (var item in Model)
+                        {
+
+                            <tr>
+                                <td>
+                                    @item.Id
+                                </td>
+                                <td>
+                                    @item.UserName
+                                </td>
+                                <td>
+                                    @item.Firstname
+                                </td>
+                                <td>
+                                    @item.LastName
+                                </td>
+                            </tr>
+                        }
+
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

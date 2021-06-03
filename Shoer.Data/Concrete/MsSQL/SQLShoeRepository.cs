@@ -35,6 +35,7 @@ namespace Shoer.Data.Concrete.MsSQL
                     Gender = reader["Gender"].ToString(),
                     Price = Convert.ToDouble(reader["Price"]),
                     Size = Convert.ToInt32(reader["Size"]),
+                    Stock = Convert.ToInt32(reader["Stock"]),
                     CreatedDate = Convert.ToDateTime(reader["CreatedDate"]),
                     IsDeleted = Convert.ToBoolean(reader["IsDeleted"]),
                     BrandId = Convert.ToInt32(reader["BrandId"]),
@@ -50,13 +51,15 @@ namespace Shoer.Data.Concrete.MsSQL
         public void Create(Shoe entity)
         {
             DatabaseConnection.Connect();
-            SqlCommand command = new SqlCommand("INSERT INTO Shoe (Title,ShoeDescription,Gender,Price,Size,CreatedDate,IsDeleted,BrandId,CategoryId) VALUES (@title,@descr,@gender,@price,@size,@createddate,@isdeleted,@brandid,@categoryid)", DatabaseConnection._connection);
+            SqlCommand command = new SqlCommand("INSERT INTO Shoe (Title,ShoeDescription,ImageText,Gender,Price,Size,Stock,CreatedDate,IsDeleted,BrandId,CategoryId) VALUES (@title,@descr,@ImageText,@gender,@price,@size,@Stock,@createddate,@isdeleted,@brandid,@categoryid)", DatabaseConnection._connection);
             command.Parameters.AddWithValue("@title", entity.Title);
             command.Parameters.AddWithValue("@descr", entity.ShoeDescription);
+            command.Parameters.AddWithValue("@ImageText", entity.ImageText);
             command.Parameters.AddWithValue("@gender", entity.Gender);
             command.Parameters.AddWithValue("@price", entity.Price);
             command.Parameters.AddWithValue("@size", entity.Size);
-            command.Parameters.AddWithValue("@createddate", entity.CreatedDate);
+            command.Parameters.AddWithValue("@Stock", entity.Stock);
+            command.Parameters.AddWithValue("@createddate", DateTime.Now);
             command.Parameters.AddWithValue("@isdeleted", entity.IsDeleted);
             command.Parameters.AddWithValue("@brandid", entity.BrandId);
             command.Parameters.AddWithValue("@categoryid", entity.CategoryId);
@@ -67,13 +70,14 @@ namespace Shoer.Data.Concrete.MsSQL
         public void Update(Shoe entity)
         {
             DatabaseConnection.Connect();
-            SqlCommand command = new SqlCommand("UPDATE Shoe SET Title= @title , ShoeDescription=@descr , Gender=@gender , Price=@price , Size=@size , CreatedDate=@createddate , IsDeleted=@isdeleted , BrandId=@brandid , CategoryId=@categoryid WHERE Id=@Id", DatabaseConnection._connection);
+            SqlCommand command = new SqlCommand("UPDATE Shoe SET Title= @title , ShoeDescription=@descr , Gender=@gender , Price=@price , Size=@size , Stock=@Stock , CreatedDate=@createddate , IsDeleted=@isdeleted , BrandId=@brandid , CategoryId=@categoryid WHERE Id=@Id", DatabaseConnection._connection);
             command.Parameters.AddWithValue("@title", entity.Title);
             command.Parameters.AddWithValue("@descr", entity.ShoeDescription);
             command.Parameters.AddWithValue("@gender", entity.Gender);
             command.Parameters.AddWithValue("@price", entity.Price);
             command.Parameters.AddWithValue("@size", entity.Size);
-            command.Parameters.AddWithValue("@createddate", entity.CreatedDate);
+            command.Parameters.AddWithValue("@Stock", entity.Stock);
+            command.Parameters.AddWithValue("@createddate", DateTime.Now);
             command.Parameters.AddWithValue("@isdeleted", entity.IsDeleted);
             command.Parameters.AddWithValue("@brandid", entity.BrandId);
             command.Parameters.AddWithValue("@categoryid", entity.CategoryId);

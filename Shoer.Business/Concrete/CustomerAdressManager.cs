@@ -1,11 +1,7 @@
 ﻿using Shoer.Business.Abstract;
 using Shoer.Data.Abstract.EntityRepos;
 using Shoer.Entity.CustomerAdress;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Shoer.Business.Concrete
 {
@@ -20,12 +16,12 @@ namespace Shoer.Business.Concrete
         }
         public void Create(CustomerAdress entity)
         {
-          _customerAdressRepository.Create(entity);
+            _customerAdressRepository.Create(entity);
         }
 
         public void Delete(CustomerAdress entity)
         {
-           _customerAdressRepository.Delete(entity);
+            _customerAdressRepository.Delete(entity);
         }
 
         public List<CustomerAdress> GetAll()

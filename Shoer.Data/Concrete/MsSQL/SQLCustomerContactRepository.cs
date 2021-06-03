@@ -1,11 +1,9 @@
-﻿using System;
+﻿using Shoer.Data.Abstract.EntityRepos;
+using Shoer.Entity.CustomerContact;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Shoer.Data.Abstract.EntityRepos;
-using Shoer.Entity.CustomerContact;
 
 namespace Shoer.Data.Concrete.MsSQL
 {
@@ -49,7 +47,7 @@ namespace Shoer.Data.Concrete.MsSQL
                 {
                     Id = Convert.ToInt32(reader["Id"]),
                     Email = Convert.ToString(reader["Email"]),
-                    PhoneNo = Convert.ToInt32(reader["PhoneNo"]),
+                    PhoneNo = reader["PhoneNo"].ToString(),
                     CustomerId = Convert.ToInt32(reader["CustomerId"]),
                 };
                 CustomerContacts.Add(customerContact);

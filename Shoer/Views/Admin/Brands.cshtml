@@ -1,0 +1,66 @@
+﻿@model List<Shoer.Entity.Brand.Brand>
+@{
+    Layout = "_AdminLayout";
+}
+<div class="container" style="margin-top: 150px;">
+    @if (TempData["Success"] != null)
+    {
+        <div class="row">
+            <div class="col-md-12">
+                <div class="alert alert-success text-center" style="font-weight: bold">
+                    @TempData["Success"].ToString()
+                </div>
+            </div>
+        </div>
+    }
+    <div class="row">
+        <table class="table table-bordered table-hover table-striped">
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Brand Name</th>
+                <th></th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            @if (Model.Count <= 0)
+            {
+                <tr>
+                    <td colspan="4">There is no Shoe.</td>
+                </tr>
+            }
+            else
+            {
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @item.Id
+                        </td>
+                        <td>
+                            @item.BrandName
+                        </td>
+                        <td>
+                            <a href="/Admin/RemoveBrand/@item.Id">Remove</a>
+
+                        </td>
+                        <td>
+                            <a href="/Admin/UpdateBrand/@item.Id">Update</a>
+
+                        </td>
+                    </tr>
+                }
+
+            }
+            </tbody>
+        </table>
+    </div>
+    <div class="row justify-content-center">
+        <div class="d-flex flex-column bd-highlight mb-3">
+            <div class="p-2 bd-highlight">
+                <a href="/Admin/AddBrand" class="btn btn-primary text-light">Add New Brand</a>
+            </div>
+        </div>
+    </div>
+</div>

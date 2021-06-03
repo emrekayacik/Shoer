@@ -1,13 +1,9 @@
 ﻿using Shoer.Entity.CustomerContact;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Shoer.Business.Abstract
 {
-   public interface ICustomerContactService
+    public interface ICustomerContactService
     {
         CustomerContact GetById(int id);
 
@@ -17,6 +13,5 @@ namespace Shoer.Business.Abstract
 
         void Update(CustomerContact entity);
         void Delete(CustomerContact entity);
-        CustomerContact GetMostPopularCustomerContact();
     }
 }

@@ -2,7 +2,7 @@
 <ul class="navbar-nav my-2 my-lg-0">
     
  
-    @if (Context.Session.GetString("UserName") != null)
+    @if (Context.Session.GetString("UserName") != null || Context.Session.GetString("Admin") != null)
     {
         <li class="nav-item active">
             <a class="nav-link" href="/Customer">@Context.Session.GetString("UserName")</a>

@@ -9,52 +9,50 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
     <link href="/css/style.css" rel="stylesheet" />
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <link href="/css/toastr.css" rel="stylesheet" />
-    <script src="/js/toastr.js"></script>
 
 </head>
 <body>
     <nav class="navbar navbar-dark bg-dark navbar-expand-lg fixed-top mb-5">
-        <a class="navbar-brand" href="/Home/Index">Shoer</a>
+        <a class="navbar-brand" href="/Admin">Shoer Admin Panel</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="/Home/Index">Home <span class="sr-only">(current)</span></a>
+                <li class="nav-item">
+                    <a class="nav-link" href="/Admin">Customers</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/Shoe/List">Shoe List </a>
+                    <a class="nav-link" href="/Admin/WaitingApproval">Waiting Approval </a>
                 </li>
-                @await Component.InvokeAsync("Brand")
-                @await Component.InvokeAsync("Category")
-                @if (Context.Session.GetString("Admin") != null)
-                {
-                    <li class="nav-item">
-                        <a class="nav-link" href="/Admin">Admin Panel </a>
-                    </li>
-                }
+                <li class="nav-item">
+                    <a class="nav-link" href="/Admin/WaitingShipping">Waiting Shipping </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/Admin/WaitingComplete">Waiting Complete </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/Admin/Statistics">Statistics </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/Admin/Shoes">Shoes </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/Admin/Brands">Brands </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/Admin/Categories">Categories </a>
+                </li>
+
             </ul>
-            @await Component.InvokeAsync("Cart")
-            @await Component.InvokeAsync("Login")
         </div>
     </nav>
 
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
+    <main role="main" class="pb-3">
+        @RenderBody()
+    </main>
 
-
-<footer class="bg-light text-center text-lg-start" style="margin-top: 200px;">
-        <!-- Copyright -->
-        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-            © 2021 Copyright:
-            <a class="text-dark" href="https://mdbootstrap.com/">Emre Kayacık - Efekan Aydemir</a>
-        </div>
-        <!-- Copyright -->
-    </footer>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
