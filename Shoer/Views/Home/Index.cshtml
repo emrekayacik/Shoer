@@ -4,11 +4,23 @@
     ViewData["Title"] = "Home Page";
 }
 
-
+<div class="row pt-5">
+    <div class="col-md-12">
+        <img src="/img/ShoeImages/indexman.jpg" style="max-width: 1900px;height: auto;" />
+    </div>
+</div>
 @Html.Partial("_Jumbotron")
-<div class="container pt-5">
-    <h2>the <b style="color: crimson; font-variant: small-caps;">Most Seller</b> of this season </h2>
-    <hr/>
+
+<div class="container pt-5 pb-5">
+    <div class="jumbotron" style="background: cadetblue">
+        <div class="container text-center">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1 class="h1-index">the most seller of the season</h1>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="card mb-3">
         <img class="card-img-top" src="/img/ShoeImages/@Model.ImageText" style="display: block;">
         <div class="card-body">
@@ -18,3 +30,42 @@
         </div>
     </div>
 </div>
+<div class="jumbotron" style="background: #ede734; margin: 0;">
+    <div class="container text-center">
+        <div class="row">
+            <div class="col-md-6" style="text-align: left;">
+                <h1 style="font-family: Georgia, serif;">JOIN US AS A CUSTOMER & GET 15% OFF</h1>
+            </div>
+            <div class="col-md-6">
+                <span onclick="goRegister()"><button style="cursor: pointer;" class="btn-stylish">REGISTER!</button></span>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row" style="padding: 0;">
+    <div class="col-md-12">
+        <img src="/img/ShoeImages/indexwoman.jpg" style="max-width: 1900px;height: auto;" />
+    </div>
+</div>
+<div class="jumbotron" style="background: #f04c54">
+    <div class="container text-center">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h1 style="font-family: Georgia, serif; font-variant: small-caps;">Shoer</h1>
+                    </div>
+                    <div style="font-family: Georgia, serif; font-size: 2rem;" class="col-md-6">
+                        ALMOST OUT OF STOCK!
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <span onclick="goList()"><button style="cursor: pointer;" class="btn-stylish">SHOE LIST</button></span>
+            </div>
+        </div>
+    </div>
+</div>
+@Html.Hidden("urlList", Url.Action("List", "Shoe"))
+@Html.Hidden("urlRegister", Url.Action("Register", "Customer"))
+<script src="/js/nav.js"></script>
