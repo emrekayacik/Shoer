@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Shoer.Business.Abstract;
+using Shoer.Data.Abstract;
 using Shoer.Entity.Brand;
 using Shoer.Entity.Category;
 using Shoer.Entity.Shoe;
@@ -20,6 +21,7 @@ namespace Shoer.Controllers
         private readonly IBrandService _brandService;
         private readonly ICategoryService _categoryService;
         private IHostingEnvironment _env;
+        InterestingQueryRepository getQuery;
 
         public AdminController(ICustomerService customerService, IAdminService adminService, IOrderService orderService,
             IShoeService shoeService, IBrandService brandService, ICategoryService categoryService, IHostingEnvironment env)
@@ -31,6 +33,7 @@ namespace Shoer.Controllers
             _brandService = brandService;
             _categoryService = categoryService;
             _env = env;
+            getQuery = new InterestingQueryRepository();
         }
         public IActionResult Index()
         {
@@ -80,6 +83,15 @@ namespace Shoer.Controllers
         }
         public IActionResult Statistics()
         {
+            var mostSoldCategory = getQuery.GetMostSoldCategory3Month();
+            var leastSoldCategory = getQuery.GetLeastSoldCategory3Month();
+            var mostSoldShoe3Month = getQuery.GetMostSoldShoe3Month();
+            var leastSoldShoe3Month = getQuery.GetLeastSoldShoe3Month();
+            var biggestIncomeShoe = getQuery.GetBiggestIncomeShoe();
+            var mostSoldBrand = getQuery.GetMostSoldBrand();
+            var leastSoldBrand = getQuery.GetLeastSoldBrand();
+            var mostSpentCustomer = getQuery.GetMostSpentCustomer();
+
             return View();
         }
         public IActionResult Shoes()
