@@ -2,6 +2,6 @@
 {
     public class NumberOfReturnsThisMonthModel
     {
-        public string Returns_Count { get; set; }
+        public int Returns_Count { get; set; }
     }
 }

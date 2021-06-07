@@ -173,5 +173,57 @@ ORDER BY Total DESC;", DatabaseConnection._connection);
             DatabaseConnection._connection.Close();
             return customer;
         }
+        public NumberOfOrders3MonthModel GetNumberOfOrders3MonthModel()
+        {
+            NumberOfOrders3MonthModel numberOfOrders3Month = new NumberOfOrders3MonthModel();
+            DatabaseConnection.Connect();
+            SqlCommand command = new SqlCommand(@"SELECT COUNT(*) AS Orders_Received FROM Orders O
+WHERE O.OrderDate BETWEEN DATEADD(MONTH,-3,GETDATE()) AND GETDATE()", DatabaseConnection._connection);
+            SqlDataReader reader = command.ExecuteReader();
+            while(reader.Read())
+            {
+                numberOfOrders3Month.Orders_Received = Convert.ToInt32(reader["Orders_Received"]);
+
+            }
+            reader.Close();
+            DatabaseConnection._connection.Close();
+            return numberOfOrders3Month;
+        }
+        public NumberOfOrdersThisYearModel GetOfOrdersThisYearModel()
+        {
+            NumberOfOrdersThisYearModel numberOfOrdersThisYearModel = new NumberOfOrdersThisYearModel();
+            DatabaseConnection.Connect();
+            SqlCommand command = new SqlCommand(@"SELECT COUNT(*) AS Orders_Received FROM Orders O
+WHERE O.OrderDate BETWEEN DATEADD(YEAR,-1,GETDATE()) AND GETDATE()", DatabaseConnection._connection);
+
+            SqlDataReader reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                numberOfOrdersThisYearModel.Orders_Received = Convert.ToInt32(reader["Orders_Received"]);
+
+            }
+            reader.Close();
+            DatabaseConnection._connection.Close();
+            return numberOfOrdersThisYearModel;
+        }
+        public NumberOfReturnsThisMonthModel GetOfReturnsThisMonthModel()
+        {
+            NumberOfReturnsThisMonthModel numberOfReturnsThisMonthModel = new NumberOfReturnsThisMonthModel();
+            DatabaseConnection.Connect();
+            SqlCommand command = new SqlCommand(@"SELECT COUNT(*) AS Orders_Received FROM Orders O
+WHERE O.OrderDate BETWEEN DATEADD(YEAR,-1,GETDATE()) AND GETDATE()", DatabaseConnection._connection);
+
+            SqlDataReader reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                numberOfReturnsThisMonthModel.Returns_Count = Convert.ToInt32(reader["Returns_Count"]);
+
+            }
+            reader.Close();
+            DatabaseConnection._connection.Close();
+            return numberOfReturnsThisMonthModel;
+        }
+
+
     }
 }

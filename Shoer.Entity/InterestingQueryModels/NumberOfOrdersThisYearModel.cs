@@ -2,6 +2,6 @@
 {
     public class NumberOfOrdersThisYearModel
     {
-        public string Orders_Received { get; set; }
+        public int Orders_Received { get; set; }
     }
 }
