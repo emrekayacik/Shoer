@@ -6,6 +6,7 @@ using Shoer.Data.Abstract;
 using Shoer.Entity.Brand;
 using Shoer.Entity.Category;
 using Shoer.Entity.Shoe;
+using Shoer.Models;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
@@ -83,16 +84,22 @@ namespace Shoer.Controllers
         }
         public IActionResult Statistics()
         {
-            var mostSoldCategory = getQuery.GetMostSoldCategory3Month();
-            var leastSoldCategory = getQuery.GetLeastSoldCategory3Month();
-            var mostSoldShoe3Month = getQuery.GetMostSoldShoe3Month();
-            var leastSoldShoe3Month = getQuery.GetLeastSoldShoe3Month();
-            var biggestIncomeShoe = getQuery.GetBiggestIncomeShoe();
-            var mostSoldBrand = getQuery.GetMostSoldBrand();
-            var leastSoldBrand = getQuery.GetLeastSoldBrand();
-            var mostSpentCustomer = getQuery.GetMostSpentCustomer();
+            InterestingQueriesModel interestingQueriesModel = new InterestingQueriesModel()
+            {
+                BiggestIncomeShoe = getQuery.GetBiggestIncomeShoe(),
+                LeastSoldBrandThisMonth = getQuery.GetLeastSoldBrand(),
+                LeastSoldCategory3MonthModel = getQuery.GetLeastSoldCategory3Month(),
+                LeastSoldShoe3Month = getQuery.GetLeastSoldShoe3Month(),
+                MostSoldBrandThisMonth = getQuery.GetMostSoldBrand(),
+                MostSoldCategory3MonthModel = getQuery.GetMostSoldCategory3Month(),
+                MostSoldShoe3Month = getQuery.GetMostSoldShoe3Month(),
+                MostSpentMoneyCustomer = getQuery.GetMostSpentCustomer(),
+                NumberOfOrders3Month = getQuery.GetNumberOfOrders3MonthModel(),
+                NumberOfOrdersThisYear = getQuery.GetNumberOfOrdersThisYearModel(),
+                NumberOfReturnsThisMonth = getQuery.GetNumberOfReturnsThisYearModel()
+            };
 
-            return View();
+            return View(interestingQueriesModel);
         }
         public IActionResult Shoes()
         {

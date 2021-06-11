@@ -180,7 +180,7 @@ ORDER BY Total DESC;", DatabaseConnection._connection);
             SqlCommand command = new SqlCommand(@"SELECT COUNT(*) AS Orders_Received FROM Orders O
 WHERE O.OrderDate BETWEEN DATEADD(MONTH,-3,GETDATE()) AND GETDATE()", DatabaseConnection._connection);
             SqlDataReader reader = command.ExecuteReader();
-            while(reader.Read())
+            while (reader.Read())
             {
                 numberOfOrders3Month.Orders_Received = Convert.ToInt32(reader["Orders_Received"]);
 
@@ -189,7 +189,7 @@ WHERE O.OrderDate BETWEEN DATEADD(MONTH,-3,GETDATE()) AND GETDATE()", DatabaseCo
             DatabaseConnection._connection.Close();
             return numberOfOrders3Month;
         }
-        public NumberOfOrdersThisYearModel GetOfOrdersThisYearModel()
+        public NumberOfOrdersThisYearModel GetNumberOfOrdersThisYearModel()
         {
             NumberOfOrdersThisYearModel numberOfOrdersThisYearModel = new NumberOfOrdersThisYearModel();
             DatabaseConnection.Connect();
@@ -206,7 +206,7 @@ WHERE O.OrderDate BETWEEN DATEADD(YEAR,-1,GETDATE()) AND GETDATE()", DatabaseCon
             DatabaseConnection._connection.Close();
             return numberOfOrdersThisYearModel;
         }
-        public NumberOfReturnsThisMonthModel GetOfReturnsThisMonthModel()
+        public NumberOfReturnsThisMonthModel GetNumberOfReturnsThisYearModel()
         {
             NumberOfReturnsThisMonthModel numberOfReturnsThisMonthModel = new NumberOfReturnsThisMonthModel();
             DatabaseConnection.Connect();
