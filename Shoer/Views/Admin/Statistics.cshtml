@@ -1,69 +1,73 @@
 ﻿@model Shoer.Models.InterestingQueriesModel
-<div class="container">
-    <div class="row">
+@{
+    ViewData["Title"] = "Statistics";
+    Layout = "_AdminLayout";
+}
+<div class="container pb-5" style="margin-top: 100px;">
+    <div class="row text-center pb-3">
         <div class="col-md-4">
-            <div class="badge badge-primary">Biggest Income Shoe(All Time): </div>
-            <div>Title: @Model.BiggestIncomeShoe.Title</div>
-            <div>Total: <p>$</p>@Model.BiggestIncomeShoe.Total</div>
+            <div class="badge badge-primary">Most Sold Shoe(All Time): </div>
+            <div><b>Title:</b> @Model.BiggestIncomeShoe.Title</div>
+            <div><b>Total:</b> <span>$</span>@Model.BiggestIncomeShoe.Total</div>
         </div>
         <div class="col-md-4">
             <div class="badge badge-primary">Most Sold Shoe(Last 3 Months): </div>
-            <div>Title: @Model.MostSoldShoe3Month.Title</div>
-            <div>Total: <p>$</p>@Model.MostSoldShoe3Month.TotalPrice</div>
+            <div><b>Title:</b> @Model.MostSoldShoe3Month.Title</div>
+            <div><b>Total:</b> <span>$</span>@Model.MostSoldShoe3Month.TotalPrice</div>
         </div>
         <div class="col-md-4">
             <div class="badge badge-danger">Least Sold Shoe(Last 3 Months): </div>
-            <div>Title: @Model.LeastSoldShoe3Month.Title</div>
-            <div>Total: <p>$</p>@Model.LeastSoldShoe3Month.TotalPrice</div>
+            <div><b>Title:</b> @Model.LeastSoldShoe3Month.Title</div>
+            <div><b>Total:</b> <span>$</span>@Model.LeastSoldShoe3Month.TotalPrice</div>
         </div>
     </div>
     <hr />
-    <div class="row">
+    <div class="row text-center pb-3">
         <div class="col-md-6">
             <div class="badge badge-success">Most Sold Brand(This Month): </div>
-            <div>Brand Name: @Model.MostSoldBrandThisMonth.BrandName</div>
-            <div>Total: <p>$</p>@Model.MostSoldBrandThisMonth.Total</div>
+            <div><b>Brand Name:</b> @Model.MostSoldBrandThisMonth.BrandName</div>
+            <div><b>Total:</b> <span>$</span>@Model.MostSoldBrandThisMonth.Total</div>
         </div>
         <div class="col-md-6">
             <div class="badge badge-danger">Least Sold Brand: </div>
-            <div>Brand Name: @Model.LeastSoldBrandThisMonth.BrandName</div>
-            <div>Total: <p>$</p>@Model.LeastSoldBrandThisMonth.Total</div>
+            <div><b>Brand Name:</b> @Model.LeastSoldBrandThisMonth.BrandName</div>
+            <div><b>Total:</b> <span>$</span>@Model.LeastSoldBrandThisMonth.Total</div>
         </div>
     </div>
     <hr />
-    <div class="row">
+    <div class="row text-center pb-3">
         <div class="col-md-6">
             <div class="badge badge-success">Most Sold Category(Last 3 Months): </div>
-            <div>Category Name: @Model.MostSoldCategory3MonthModel.CategoryName</div>
-            <div>Total: <p>$</p>@Model.MostSoldCategory3MonthModel.Total</div>
+            <div><b>Category Name:</b> @Model.MostSoldCategory3MonthModel.CategoryName</div>
+            <div><b>Total:</b> <span>$</span>@Model.MostSoldCategory3MonthModel.Total</div>
         </div>
         <div class="col-md-6">
             <div class="badge badge-danger">Least Sold Category(Last 3 Months): </div>
-            <div>Category Name: @Model.LeastSoldCategory3MonthModel.CategoryName</div>
-            <div>Total: <p>$</p>@Model.LeastSoldCategory3MonthModel.Total</div>
+            <div><b>Category Name:</b> @Model.LeastSoldCategory3MonthModel.CategoryName</div>
+            <div><b>Total:</b> <span>$</span>@Model.LeastSoldCategory3MonthModel.Total</div>
         </div>
     </div>
     <hr />
-    <div class="row">
+    <div class="row text-center pb-3">
         <div class="col-md-12">
             <div class="badge badge-primary">Most Spent Customer(Last 3 Months): </div>
-            <div>Username: @Model.MostSpentMoneyCustomer.UserName</div>
-            <div>Total: <p>$</p>@Model.MostSpentMoneyCustomer.Total</div>
+            <div><b>Username:</b> @Model.MostSpentMoneyCustomer.UserName</div>
+            <div><b>Total:</b> <span>$</span>@Model.MostSpentMoneyCustomer.Total</div>
         </div>
     </div>
     <hr />
-    <div class="row">
+    <div class="row text-center pb-3">
         <div class="col-md-4">
             <div class="badge badge-info">Number Of Orders(Last 3 Months): </div>
-            <div>Orders Received: @Model.NumberOfOrders3Month.Orders_Received</div>
+            <div><b>Orders Received:</b> @Model.NumberOfOrders3Month.Orders_Received</div>
         </div>
         <div class="col-md-4">
             <div class="badge badge-info">Number Of Orders(Last 1 year): </div>
-            <div>Orders Received: @Model.NumberOfOrdersThisYear.Orders_Received</div>
+            <div><b>Orders Received:</b> @Model.NumberOfOrdersThisYear.Orders_Received</div>
         </div>
         <div class="col-md-4">
-            <div class="badge badge-warning">Least Sold Category(Last 3 Months): </div>
-            <div>Returns Count: @Model.NumberOfReturnsThisMonth.Returns_Count</div>
+            <div class="badge badge-warning">Returns (This Month): </div>
+            <div><b>Returns Count:</b> @Model.NumberOfReturnsThisMonth.Returns_Count</div>
         </div>
     </div>
 </div>

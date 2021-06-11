@@ -178,7 +178,7 @@ ORDER BY Total DESC;", DatabaseConnection._connection);
             NumberOfOrders3MonthModel numberOfOrders3Month = new NumberOfOrders3MonthModel();
             DatabaseConnection.Connect();
             SqlCommand command = new SqlCommand(@"SELECT COUNT(*) AS Orders_Received FROM Orders O
-WHERE O.OrderDate BETWEEN DATEADD(MONTH,-3,GETDATE()) AND GETDATE()", DatabaseConnection._connection);
+WHERE O.OrderDate BETWEEN DATEADD(MONTH,-3,GETDATE()) AND GETDATE();", DatabaseConnection._connection);
             SqlDataReader reader = command.ExecuteReader();
             while (reader.Read())
             {
@@ -194,7 +194,7 @@ WHERE O.OrderDate BETWEEN DATEADD(MONTH,-3,GETDATE()) AND GETDATE()", DatabaseCo
             NumberOfOrdersThisYearModel numberOfOrdersThisYearModel = new NumberOfOrdersThisYearModel();
             DatabaseConnection.Connect();
             SqlCommand command = new SqlCommand(@"SELECT COUNT(*) AS Orders_Received FROM Orders O
-WHERE O.OrderDate BETWEEN DATEADD(YEAR,-1,GETDATE()) AND GETDATE()", DatabaseConnection._connection);
+WHERE O.OrderDate BETWEEN DATEADD(YEAR,-1,GETDATE()) AND GETDATE();", DatabaseConnection._connection);
 
             SqlDataReader reader = command.ExecuteReader();
             while (reader.Read())
@@ -210,8 +210,10 @@ WHERE O.OrderDate BETWEEN DATEADD(YEAR,-1,GETDATE()) AND GETDATE()", DatabaseCon
         {
             NumberOfReturnsThisMonthModel numberOfReturnsThisMonthModel = new NumberOfReturnsThisMonthModel();
             DatabaseConnection.Connect();
-            SqlCommand command = new SqlCommand(@"SELECT COUNT(*) AS Orders_Received FROM Orders O
-WHERE O.OrderDate BETWEEN DATEADD(YEAR,-1,GETDATE()) AND GETDATE()", DatabaseConnection._connection);
+            SqlCommand command = new SqlCommand(@"SELECT COUNT(*) AS Returns_Count FROM Orders O
+WHERE O.IsDeleted = '1'
+AND
+O.OrderDate BETWEEN DATEADD(MONTH,-1,GETDATE()) AND GETDATE();", DatabaseConnection._connection);
 
             SqlDataReader reader = command.ExecuteReader();
             while (reader.Read())
