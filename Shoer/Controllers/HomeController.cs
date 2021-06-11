@@ -15,5 +15,13 @@ namespace Shoer.Controllers
         {
             return View(_shoeService.GetMostPopularShoe());
         }
+        public IActionResult Contact()
+        {
+            return View();
+        }
+        public IActionResult About()
+        {
+            return View();
+        }
     }
 }

@@ -30,6 +30,12 @@
                 </li>
                 @await Component.InvokeAsync("Brand")
                 @await Component.InvokeAsync("Category")
+                <li class="nav-item">
+                    <a class="nav-link" href="/Home/About">About </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/Home/Contact">Contact </a>
+                </li>
                 @if (Context.Session.GetString("Admin") != null)
                 {
                     <li class="nav-item">
