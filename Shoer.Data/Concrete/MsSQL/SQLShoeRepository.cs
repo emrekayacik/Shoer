@@ -116,7 +116,11 @@ namespace Shoer.Data.Concrete.MsSQL
             }
             reader.Close();
             DatabaseConnection._connection.Close();
-            return GetAll().FirstOrDefault(x => x.Id == shoePopularModel[0].Id);
+            if (shoePopularModel.Count > 0)
+            {
+                return GetAll().FirstOrDefault(x => x.Id == shoePopularModel[0].Id);
+            }
+            return new Shoe() { };
         }
     }
 }
